@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- <div class="container mt-5">
+        <form>
+            <div class="mb-3 row">
+                <label for="gender-form" class="col-sm-3 col-form-label">Gender:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="gender-form" name="age">
+                        <option value=""></option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="age-form" class="col-sm-3 col-form-label">Age:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="age-form" name="age">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="albumin-form" class="col-sm-3 col-form-label">Albumin:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="albumin-form" name="albumin">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="bloodurea-form" class="col-sm-3 col-form-label">Blood Urea:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="bloodurea-form" name="bloodurea">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="serumcreatinine-form" class="col-sm-3 col-form-label">Serum Creatinine:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="serumcreatinine-form" name="serumcreatinine">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="sodium-form" class="col-sm-3 col-form-label">Sodium:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sodium-form" name="sodium">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="potassium-form" class="col-sm-3 col-form-label">Potassium:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="potassium-form" name="potassium">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="calcium-form" class="col-sm-3 col-form-label">Calcium:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="calcium-form" name="calcium">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="hypertension-form" class="col-sm-3 col-form-label">Hypertension:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="hypertension-form" name="hypertension">
+                        <option value=""></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="diabetesmellitus-form" class="col-sm-3 col-form-label">Diabetes Mellitus:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="diabetesmellitus-form" name="diabetesmellitus">
+                        <option value=""></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label for="anemia-form" class="col-sm-3 col-form-label">Anemia:</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="anemia-form" name="anemia">
+                        <option value=""></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <button id="predict-button" class="btn btn-dark float-right">Predict</button>
+                </div>
+            </div>
+            
+
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h2 class="ml-3">Prediction</h2>
+            <div id="prediction-list"></div>
+        </div>
+    </div>
+    <hr> -->
+    <section id="banner">
+        <div class="container-fluid" id="banner-container">
+            <div class="row" id="banner-row">
+                <div class="col-md-7" id="banner-col">
+                    <h1>The Chronic Kidney Disease Risk Detection</h1>
+                    <h3>Assess Your Risk of Chronic Kidney Disease</h3>
+
+                    <div class="columns text-center medium-6">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#calculatorModal" role="button">
+                            <span class="smaller">CKD</span>
+                            <br>
+                            Risk Calculator
+                        </a>
+                    </div>
+                    
+                    <div class="columns text-center medium-6">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kidneysModal" role="button">
+                            <span class="smaller">Learn more about</span>
+                            <br>
+                            Your Kidneys
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-5" id="banner-col2">
+                    <img src="img/kidney.png" alt="banner" class="img-fluid rounded mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--calculator modal -->
+    <div class="modal fade" id="calculatorModal" tabindex="-1" aria-labelledby="calculatorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="row text-center intro-text">
+                        <h1>
+                            <span class="smaller">Chronic Kidney Disease</span><br>
+                            Risk Assessment
+                        </h1>
+                    </div>
+                    <!-- calculator form -->
+                    <section class="container my-2 w-50 p-2">
+                    <form id="risk-calculator-form" class="row g-3 p-3 needs-validation" novalidate>
+                        
+                            <div class="col-md-6">
+                                <label for="gender-form" class="form-label">Gender:</label>
+                                <select class="form-select" id="gender-form" name="gender" required>
+                                  <option value="" disabled selected>Select Gender</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                  Please select your gender.
+                                </div>
+                            </div>
+                
+                            <div class="col-md-6">
+                                <label for="age-form" class="col-sm-5 col-form-label">Age:</label>
+                                    <input type="text" class="form-control" id="age-form" name="age" required>
+                                    <div class="invalid-feedback">
+                                        Age is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="albumin-form" class="col-sm-5 col-form-label">Albumin:</label>
+                                    <input type="text" class="form-control" id="albumin-form" name="albumin" required>
+                                    <div class="invalid-feedback">
+                                        Albumin is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="bloodurea-form" class="col-sm-5 col-form-label">Blood Urea:</label>
+                                    <input type="text" class="form-control" id="bloodurea-form" name="bloodurea" required>
+                                    <div class="invalid-feedback">
+                                        Blood Urea is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="serumcreatinine-form" class="col-sm-5 col-form-label">Serum Creatinine:</label>
+                                    <input type="text" class="form-control" id="serumcreatinine-form" name="serumcreatinine" required>
+                                    <div class="invalid-feedback">
+                                        Serum Creatinine is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="sodium-form" class="col-sm-5 col-form-label">Sodium:</label>
+                                    <input type="text" class="form-control" id="sodium-form" name="sodium" required>
+                                    <div class="invalid-feedback">
+                                        Sodium is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="potassium-form" class="col-sm-5 col-form-label">Potassium:</label>
+                                    <input type="text" class="form-control" id="potassium-form" name="potassium" required>
+                                    <div class="invalid-feedback">
+                                        Potassium is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="calcium-form" class="col-sm-5 col-form-label">Calcium:</label>
+                                    <input type="text" class="form-control" id="calcium-form" name="calcium" required>
+                                    <div class="invalid-feedback">
+                                        Calcium is required.
+                                    </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <label for="hypertension-form" class="col-sm-5 col-form-label">Hypertension:</label>
+                                    <select class="form-select" id="hypertension-form" name="hypertension" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <label for="diabetesmellitus-form" class="col-sm-5 col-form-label">Diabetes:</label>
+                                    <select class="form-select" id="diabetesmellitus-form" name="diabetesmellitus" required>
+                                        <option value=""disabled selected>Select</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="anemia-form" class="col-sm-5 col-form-label">Anemia:</label>
+                                    <select class="form-select" id="anemia-form" name="anemia" required>
+                                        <option value=""disabled selected>Select</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                            </div>
+                            
+                            
+                            <div class="col-12 text-center pt-5">
+                                 <button id="predict-button" class="orange-button"  type="submit">Detect</button>
+                            </div>
+                    </form>           
+                </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resultsModal" aria-hidden="true" aria-labelledby="resultsModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="text-center title-padding">Your Result</h1>
+                      </div>
+
+                    <hr>
+                    <div id="image-container" class="text-center my-2">
+
+                    </div>
+                    <div class="row my-2">
+                        <div class="col text-center">
+                            <div id="prediction-list"></div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <!-- what happens if my kidney fail -->
+                    <section id="treatment-option" class="some-options">
+                        <div class="text-center">
+                            <img src="img/title-kidneys_fail.png" class="wow fadeInDown" data-bs-delay="0.4s" alt="What happens if my kidney fails, here are some options">
+                        </div>
+                        <div class="text-center">
+                            <img class="arrow-split wow fadeInDown" data-bs-delay="0.6s" src="img/kidneys_fail_arrows.png" alt="What happens if my kidney fails, here are some options">
+                        </div>
+                        <div class="row custom-margin">
+                            <div class="col-md-6 text-center"> 
+                                <img src="img/kidneys_fail_dialysis.png" alt="" class="img-fluid wow fadeInLeft" data-bs-delay="0.6s">
+                            </div>
+                            <div class="col-md-6 text-center"> 
+                                <img src="img/kidneys_fail_transplant.png" alt="" class="img-fluid wow fadeInRight" data-bs-delay="0.6s">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- signs and symptoms -->
+                    <section id="signs-and-symptoms" class="signs-symptons">
+                        <div class="bottom-arrow">
+                        </div>
+                        <div class="text-center wow fadeInDown" data-bs-delay="0.8s">
+                        <img src="img/signs_symptoms.png" alt="Recognize the signs and symptoms" />
+                        </div>
+
+                        <div class="row header-row text-center">
+                            <div class=" col-md-6 text-center mb-2 wow fadeInLeft" data-bs-delay="0.8s">
+                                <img src="img/signs_symptoms_1.png" alt="" class="img-fluid">
+                            </div>
+
+                            <div class="col-md-6 mb-2 text-center">
+                                <img src="img/signs_symptoms_2.png" alt="">
+                            </div>
+                        </div>
+                        
+                        <div class="text-center footer">
+                        <img src="img/signs_symptoms_3.png" alt="Recognize the signs and symptoms" class="img-fluid wow fadeIn" data-bs-delay="0.8s" />
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
